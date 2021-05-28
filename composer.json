@@ -1,0 +1,12 @@
+{
+    "name": "drupal/helfi_media_map",
+    "description": "Integrates hel.fi maps with Media",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "drupal/coder": "^8.3",
+        "phpspec/prophecy-phpunit": "^2"
+    }
+}
