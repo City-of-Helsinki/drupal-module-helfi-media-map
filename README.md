@@ -2,9 +2,7 @@
 
 ![CI](https://github.com/City-of-Helsinki/drupal-module-helfi-media-map/workflows/CI/badge.svg)
 
-## Usage
-
-@todo
+Allows `kartta.hel.fi` and `palvelukartta.hel.fi` maps to be embedded using Media.
 
 ## Contact
 
