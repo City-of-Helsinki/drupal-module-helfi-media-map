@@ -3,8 +3,17 @@
 /**
  * @file
  * Primary module hooks for helfi_media_map module.
- *
- * @DCG
- * This file is no longer required in Drupal 8.
- * @see https://www.drupal.org/node/2217931
  */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function helfi_media_map_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
+  if ($entity_type->id() === 'media' && $bundle === 'hel_map') {
+    if (isset($fields['field_media_hel_map'])) {
+      $fields['field_media_hel_map']->addConstraint('ValidMediaMapLink', []);
+    }
+  }
+}
