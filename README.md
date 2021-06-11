@@ -4,11 +4,12 @@
 
 Allows `kartta.hel.fi` and `palvelukartta.hel.fi` maps to be embedded using Media.
 
-### Turn on the feature needed to include the media maps on paragraphs.
+### Drupal Media map on paragraphs
 
-Install HELfi Media map configuration module included in [HELfi platform config](https://github.com/City-of-Helsinki/drupal-helfi-platform-config) module.
+To enable the feature of adding maps in paragraphs you'll need to install the HELfi Media map configuration module which resides in [HELfi platform config](https://github.com/City-of-Helsinki/drupal-helfi-platform-config) module.
 
-`drush en helfi_media_map_config`
+Run `drush en helfi_media_map_config` to install the module and run `drush cex` to export the configuration your configurations folder.
+
 
 ## Contact
 
