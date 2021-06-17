@@ -1,34 +1,19 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Drupal\helfi_media_map\Form;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\media_library\Form\AddFormBase;
-use Drupal\media_library\MediaLibraryUiBuilder;
-use Drupal\media_library\OpenerResolverInterface;
 
 /**
  * {@inheritDoc}
  */
 class HelfiMediaMapAddForm extends AddFormBase {
-
-  /**
-   * Constructs a AddFormBase object.
-   *
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *   The entity type manager.
-   * @param \Drupal\media_library\MediaLibraryUiBuilder $library_ui_builder
-   *   The media library UI builder.
-   * @param \Drupal\media_library\OpenerResolverInterface $opener_resolver
-   *   The opener resolver.
-   */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, MediaLibraryUiBuilder $library_ui_builder, OpenerResolverInterface $opener_resolver) {
-    parent::__construct($entity_type_manager, $library_ui_builder, $opener_resolver);
-  }
 
   /**
    * {@inheritDoc}
