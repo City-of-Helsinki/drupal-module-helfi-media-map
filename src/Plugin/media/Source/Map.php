@@ -16,7 +16,7 @@ use Drupal\media\MediaTypeInterface;
  *   allowed_field_types = {"link"},
  *   description = @Translation("Provides business logic and metadata for Helsinki maps."),
  *   forms = {
- *     "media_library_add" = "Drupal\helfi_media_map\Form\HelMapForm"
+ *     "media_library_add" = "Drupal\helfi_media_map\Form\HelfiMediaMapAddForm"
  *   }
  * )
  */

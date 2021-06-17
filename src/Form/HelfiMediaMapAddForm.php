@@ -14,7 +14,7 @@ use Drupal\media_library\OpenerResolverInterface;
 /**
  * {@inheritDoc}
  */
-class HelMapForm extends AddFormBase {
+class HelfiMediaMapAddForm extends AddFormBase {
 
   /**
    * Constructs a AddFormBase object.
