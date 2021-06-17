@@ -5,6 +5,7 @@ namespace Drupal\helfi_media_map\Form;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\media_library\Form\AddFormBase;
 use Drupal\media_library\MediaLibraryUiBuilder;
@@ -38,7 +39,11 @@ class HelMapForm extends AddFormBase {
     ];
     $container['helfi_media_map_url'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Map URL'),
+      '#title' => $this->t('Map embed URL'),
+      '#description' => $this->t('Enter the map embed URL from @kartta or @palvelukartta.', [
+        '@kartta' => Link::fromTextAndUrl('https://kartta.hel.fi/', Url::fromUri('https://kartta.hel.fi/', ['attributes' => ['target' => '_blank']]))->toString(),
+        '@palvelukartta' => Link::fromTextAndUrl('https://palvelukartta.hel.fi/fi/', Url::fromUri('https://palvelukartta.hel.fi/fi/', ['attributes' => ['target' => '_blank']]))->toString(),
+      ]),
     ];
 
     $container['submit'] = [
