@@ -29,6 +29,7 @@ class HelfiMediaMapAddForm extends AddFormBase {
         '@kartta' => Link::fromTextAndUrl('https://kartta.hel.fi/', Url::fromUri('https://kartta.hel.fi/', ['attributes' => ['target' => '_blank']]))->toString(),
         '@palvelukartta' => Link::fromTextAndUrl('https://palvelukartta.hel.fi/fi/', Url::fromUri('https://palvelukartta.hel.fi/fi/', ['attributes' => ['target' => '_blank']]))->toString(),
       ]),
+      '#maxlength' => 2048,
     ];
 
     $container['submit'] = [
