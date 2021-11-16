@@ -60,7 +60,8 @@ final class MediaMapFormatter extends FormatterBase {
       $link = $this->getMapUrl($uri);
 
       $element[$delta] = [
-        'iframe' => [
+        '#theme' => 'helfi_media_map',
+        '#iframe' => [
           '#type' => 'html_tag',
           '#tag' => 'iframe',
           '#value' => '',
@@ -73,9 +74,9 @@ final class MediaMapFormatter extends FormatterBase {
       ];
 
       if ($link_title = $this->getSetting('link_title')) {
-        $element[$delta]['link'] = [
+        $element[$delta]['#link'] = [
           '#type' => 'link',
-          '#title' => $link_title,
+          '#title' => $link_title . '1',
           '#url' => Url::fromUri($link),
           '#attributes' => ['target' => '_blank'],
         ];
