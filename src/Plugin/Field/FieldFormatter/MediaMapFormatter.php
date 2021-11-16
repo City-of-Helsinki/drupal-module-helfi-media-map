@@ -76,7 +76,7 @@ final class MediaMapFormatter extends FormatterBase {
       if ($link_title = $this->getSetting('link_title')) {
         $element[$delta]['#link'] = [
           '#type' => 'link',
-          '#title' => $link_title . '1',
+          '#title' => $link_title,
           '#url' => Url::fromUri($link),
           '#attributes' => ['target' => '_blank'],
         ];
