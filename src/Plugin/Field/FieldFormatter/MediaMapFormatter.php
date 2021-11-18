@@ -7,6 +7,7 @@ namespace Drupal\helfi_media_map\Plugin\Field\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\helfi_media_map\UrlParserTrait;
 
 /**
@@ -51,7 +52,7 @@ final class MediaMapFormatter extends FormatterBase {
   /**
    * {@inheritdoc}
    */
-  public function viewElements(FieldItemListInterface $items, $langcode) {
+  public function viewElements(FieldItemListInterface $items, $langcode) :array {
     $element = [];
 
     foreach ($items as $delta => $item) {
@@ -59,7 +60,8 @@ final class MediaMapFormatter extends FormatterBase {
       $link = $this->getMapUrl($uri);
 
       $element[$delta] = [
-        'iframe' => [
+        '#theme' => 'helfi_media_map',
+        '#iframe' => [
           '#type' => 'html_tag',
           '#tag' => 'iframe',
           '#value' => '',
@@ -72,14 +74,11 @@ final class MediaMapFormatter extends FormatterBase {
       ];
 
       if ($link_title = $this->getSetting('link_title')) {
-        $element[$delta]['link'] = [
-          '#type' => 'html_tag',
-          '#tag' => 'a',
-          '#value' => $link_title,
-          '#attributes' => [
-            'href' => $link,
-            'target' => '_blank',
-          ],
+        $element[$delta]['#link'] = [
+          '#type' => 'link',
+          '#title' => $link_title,
+          '#url' => Url::fromUri($link),
+          '#attributes' => ['target' => '_blank'],
         ];
       }
     }
