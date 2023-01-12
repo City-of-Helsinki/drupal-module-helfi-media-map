@@ -39,6 +39,7 @@ class HelfiMediaMapAddForm extends AddFormBase {
       '#value' => $this->t('Add'),
       '#button_type' => 'primary',
       '#submit' => ['::addButtonSubmit'],
+      '#validate' => ['::validateMapUrl'],
       '#ajax' => [
         'callback' => '::updateFormCallback',
         'wrapper' => 'media-library-wrapper',
