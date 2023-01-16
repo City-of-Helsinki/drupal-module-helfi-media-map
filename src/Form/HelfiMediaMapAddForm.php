@@ -9,6 +9,8 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\media_library\Form\AddFormBase;
+use Drupal\helfi_media_map\Plugin\media\Source\Map;
+use League\Uri\Http;
 
 /**
  * {@inheritDoc}
@@ -37,6 +39,7 @@ class HelfiMediaMapAddForm extends AddFormBase {
       '#value' => $this->t('Add'),
       '#button_type' => 'primary',
       '#submit' => ['::addButtonSubmit'],
+      '#validate' => ['::validateMapUrl'],
       '#ajax' => [
         'callback' => '::updateFormCallback',
         'wrapper' => 'media-library-wrapper',
@@ -53,6 +56,28 @@ class HelfiMediaMapAddForm extends AddFormBase {
     $form['container'] = $container;
 
     return $form;
+  }
+
+  /**
+   * Validates the map url.
+   *
+   * @param array $form
+   *   The form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The form state.
+   *
+   * @return void|TRUE
+   */
+  public function validateMapUrl(array &$form, FormStateInterface $form_state) {
+    $url = $form_state->getValue('helfi_media_map_url');
+    $host = Http::createFromString($url)->getHost();
+
+    if (!in_array($host, Map::VALID_URLS)) {
+      $form_state->setErrorByName('url', $this->t('Given host @host is not valid, must be one of: @domains', [
+        '@host' => $host,
+        '@domains' => implode(', ', Map::VALID_URLS),
+      ]));
+    }
   }
 
   /**
