@@ -16,4 +16,4 @@ This module is deprecated as of February 2023 and will be shipped with version 3
 
 Slack: #helfi-drupal (http://helsinkicity.slack.com/)
 
-Mail: drupal@hel.fi
+Mail: `drupal@hel.fi`
